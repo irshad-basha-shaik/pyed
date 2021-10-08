@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <title>Index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"> Student Details</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="saveform">Students Details</a></li>
+      <li class="Active"><a href="index">Students Registration</a></li>
+      <!--li ><a href="dmenu">Department Menu</a></li>
+      <li ><a href="dentry">Department New Entry</a></li-->
+
+    </ul>
+  </div>
+</nav>
+
+  <h2 style=" margin-left: 50px; padding-left: 50px; "> Edit Student Details</h2>
+{{errormessage}}
+  <form class="form-horizontal post-form" method="POST"  action="/seditform" enctype="multipart/form-data" style="margin-left: 100px; margin-right: 100px; padding-block: 50px;">
+      {% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="name">Student Name:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="name" value="{{form.name}}" placeholder="Enter name" name="name">
+        <input type="hidden" class="form-control" value="{{form.id}}" placeholder="Enter id" name="id">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="fname">Father Name:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="fname" value="{{form.fname}}"   placeholder="fname" name="fname" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="email">Email Id:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="email" value="{{form.email}}"   placeholder="email" name="email" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-lg-2" for="contact">Student Contact:</label>
+      <div class="col-lg-10">
+        <input type="contact" class="form-control" id="contact" value="{{form.contact}}" placeholder="contact" name="contact" >
+      </div>
+    </div>
+    <!--div class="form-group">
+      <div class="col-lg-2">
+        <label for="depid">Department:{{form.depid}}</label>
+        <select id="depid" name="departments" value="{{form.depid}}">
+          {% for d in depts %}
+          <option value="{{d.id}}" >{{d.dname}}</option>
+          {% endfor %}
+        </select>
+      </div-->
+        <input type="submit">
+    </div>
+  </form>
+
+
+</body>
+</html>
